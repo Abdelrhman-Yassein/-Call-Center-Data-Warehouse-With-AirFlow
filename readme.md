@@ -22,9 +22,9 @@ Call Center Data [this](https://data.world/markbradbourne/rwfd-real-world-fake-d
 
   01. Python.
   02. Docker 
-  03. airflow
+  03. Docker -> airflow
   04. jupyter notebook
-  05. MySQL Server
+  05.  Docker -> MySQL Server
 
 
 ## files and folders
