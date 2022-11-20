@@ -1,0 +1,48 @@
+[2022-11-20T13:15:30.867+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Call_Center_ETL_DAG.load_data_to_staging_call_table manual__2022-11-20T13:15:12.651027+00:00 [queued]>
+[2022-11-20T13:15:30.891+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Call_Center_ETL_DAG.load_data_to_staging_call_table manual__2022-11-20T13:15:12.651027+00:00 [queued]>
+[2022-11-20T13:15:30.892+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-20T13:15:30.893+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 1
+[2022-11-20T13:15:30.894+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-20T13:15:30.935+0000] {taskinstance.py:1383} INFO - Executing <Task(MySqlOperator): load_data_to_staging_call_table> on 2022-11-20 13:15:12.651027+00:00
+[2022-11-20T13:15:30.952+0000] {standard_task_runner.py:55} INFO - Started process 894 to run task
+[2022-11-20T13:15:30.971+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Call_Center_ETL_DAG', 'load_data_to_staging_call_table', 'manual__2022-11-20T13:15:12.651027+00:00', '--job-id', '168', '--raw', '--subdir', 'DAGS_FOLDER/call_center_dag.py', '--cfg-path', '/tmp/tmpzwwazdwv']
+[2022-11-20T13:15:30.974+0000] {standard_task_runner.py:83} INFO - Job 168: Subtask load_data_to_staging_call_table
+[2022-11-20T13:15:31.216+0000] {task_command.py:376} INFO - Running <TaskInstance: Call_Center_ETL_DAG.load_data_to_staging_call_table manual__2022-11-20T13:15:12.651027+00:00 [running]> on host 9eba6bc17a61
+[2022-11-20T13:15:31.790+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Abdelrhman Yassein
+AIRFLOW_CTX_DAG_ID=Call_Center_ETL_DAG
+AIRFLOW_CTX_TASK_ID=load_data_to_staging_call_table
+AIRFLOW_CTX_EXECUTION_DATE=2022-11-20T13:15:12.651027+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-11-20T13:15:12.651027+00:00
+[2022-11-20T13:15:31.793+0000] {mysql.py:84} INFO - Executing: 
+    
+            SET GLOBAL local_infile=1;
+            LOAD DATA LOCAL INFILE '/opt/***/data/CallCenter.csv'
+            INTO TABLE staging_call
+            COLUMNS TERMINATED BY ','
+            OPTIONALLY ENCLOSED BY '"'
+            ESCAPED BY '"'
+            LINES TERMINATED BY '
+'
+            IGNORE 1 LINES;
+            
+[2022-11-20T13:15:31.860+0000] {base.py:71} INFO - Using connection ID 'mysql_conn_id' for task execution.
+[2022-11-20T13:15:31.975+0000] {sql.py:315} INFO - Running statement: 
+    
+            SET GLOBAL local_infile=1;
+            LOAD DATA LOCAL INFILE '/opt/***/data/CallCenter.csv'
+            INTO TABLE staging_call
+            COLUMNS TERMINATED BY ','
+            OPTIONALLY ENCLOSED BY '"'
+            ESCAPED BY '"'
+            LINES TERMINATED BY '
+'
+            IGNORE 1 LINES;
+            , parameters: None
+[2022-11-20T13:15:32.022+0000] {sql.py:324} INFO - Rows affected: 0
+[2022-11-20T13:15:35.958+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=Call_Center_ETL_DAG, task_id=load_data_to_staging_call_table, execution_date=20221120T131512, start_date=20221120T131530, end_date=20221120T131535
+[2022-11-20T13:15:36.116+0000] {local_task_job.py:159} INFO - Task exited with return code 0
+[2022-11-20T13:15:36.217+0000] {taskinstance.py:2623} INFO - 1 downstream tasks scheduled from follow-on schedule check

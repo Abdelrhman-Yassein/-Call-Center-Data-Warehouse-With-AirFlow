@@ -1,0 +1,71 @@
+[2022-11-19T12:25:56.410+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Call_Center_ETL_DAG.create_staging_table manual__2022-11-19T12:24:26.872036+00:00 [queued]>
+[2022-11-19T12:25:57.933+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Call_Center_ETL_DAG.create_staging_table manual__2022-11-19T12:24:26.872036+00:00 [queued]>
+[2022-11-19T12:25:58.060+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-19T12:25:58.234+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 1
+[2022-11-19T12:25:58.446+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-19T12:26:00.161+0000] {taskinstance.py:1383} INFO - Executing <Task(MySqlOperator): create_staging_table> on 2022-11-19 12:24:26.872036+00:00
+[2022-11-19T12:26:01.076+0000] {standard_task_runner.py:55} INFO - Started process 614 to run task
+[2022-11-19T12:26:01.190+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Call_Center_ETL_DAG', 'create_staging_table', 'manual__2022-11-19T12:24:26.872036+00:00', '--job-id', '90', '--raw', '--subdir', 'DAGS_FOLDER/create_database_tables.py', '--cfg-path', '/tmp/tmprygoya8f']
+[2022-11-19T12:26:01.570+0000] {standard_task_runner.py:83} INFO - Job 90: Subtask create_staging_table
+[2022-11-19T12:26:06.719+0000] {task_command.py:376} INFO - Running <TaskInstance: Call_Center_ETL_DAG.create_staging_table manual__2022-11-19T12:24:26.872036+00:00 [running]> on host 6e77c1f44c06
+[2022-11-19T12:26:12.238+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Abdelrhman Yassein
+AIRFLOW_CTX_DAG_ID=Call_Center_ETL_DAG
+AIRFLOW_CTX_TASK_ID=create_staging_table
+AIRFLOW_CTX_EXECUTION_DATE=2022-11-19T12:24:26.872036+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-11-19T12:24:26.872036+00:00
+[2022-11-19T12:26:12.301+0000] {mysql.py:84} INFO - Executing: 
+        create table staging_call(
+            id              varchar(255),
+            customer_name   varchar(255), 
+            sentiment       varchar(255),
+            csat_score      varchar(255),
+            call_timestamp  varchar(255),
+            reason          varchar(255),
+            city            varchar(255),
+            state           varchar(255),
+            channel         varchar(255),
+            response_time   varchar(255),
+            call_minutes    int,
+            call_center     varchar(255)
+        )
+    
+[2022-11-19T12:26:13.005+0000] {base.py:71} INFO - Using connection ID 'mysql_conn_id' for task execution.
+[2022-11-19T12:26:14.838+0000] {sql.py:315} INFO - Running statement: 
+        create table staging_call(
+            id              varchar(255),
+            customer_name   varchar(255), 
+            sentiment       varchar(255),
+            csat_score      varchar(255),
+            call_timestamp  varchar(255),
+            reason          varchar(255),
+            city            varchar(255),
+            state           varchar(255),
+            channel         varchar(255),
+            response_time   varchar(255),
+            call_minutes    int,
+            call_center     varchar(255)
+        )
+    , parameters: None
+[2022-11-19T12:26:16.949+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/mysql/operators/mysql.py", line 86, in execute
+    hook.run(self.sql, autocommit=self.autocommit, parameters=self.parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 295, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 320, in _run_command
+    cur.execute(sql_statement)
+  File "/home/airflow/.local/lib/python3.7/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/home/airflow/.local/lib/python3.7/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/home/airflow/.local/lib/python3.7/site-packages/MySQLdb/connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+MySQLdb.OperationalError: (1050, "Table 'staging_call' already exists")
+[2022-11-19T12:26:17.479+0000] {taskinstance.py:1406} INFO - Marking task as FAILED. dag_id=Call_Center_ETL_DAG, task_id=create_staging_table, execution_date=20221119T122426, start_date=20221119T122557, end_date=20221119T122617
+[2022-11-19T12:26:18.970+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 90 for task create_staging_table ((1050, "Table 'staging_call' already exists"); 614)
+[2022-11-19T12:26:20.846+0000] {local_task_job.py:159} INFO - Task exited with return code 1
+[2022-11-19T12:26:22.290+0000] {taskinstance.py:2623} INFO - 0 downstream tasks scheduled from follow-on schedule check

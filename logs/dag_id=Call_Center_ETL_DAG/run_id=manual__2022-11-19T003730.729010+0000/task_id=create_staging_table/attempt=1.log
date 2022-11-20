@@ -1,0 +1,56 @@
+[2022-11-19T00:37:54.459+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Call_Center_ETL_DAG.create_staging_table manual__2022-11-19T00:37:30.729010+00:00 [queued]>
+[2022-11-19T00:37:54.889+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Call_Center_ETL_DAG.create_staging_table manual__2022-11-19T00:37:30.729010+00:00 [queued]>
+[2022-11-19T00:37:54.920+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-19T00:37:54.953+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 1
+[2022-11-19T00:37:54.985+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-19T00:37:55.880+0000] {taskinstance.py:1383} INFO - Executing <Task(MySqlOperator): create_staging_table> on 2022-11-19 00:37:30.729010+00:00
+[2022-11-19T00:37:55.975+0000] {standard_task_runner.py:55} INFO - Started process 3408 to run task
+[2022-11-19T00:37:56.056+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Call_Center_ETL_DAG', 'create_staging_table', 'manual__2022-11-19T00:37:30.729010+00:00', '--job-id', '55', '--raw', '--subdir', 'DAGS_FOLDER/create_database_tables.py', '--cfg-path', '/tmp/tmpa3_nqexm']
+[2022-11-19T00:37:56.086+0000] {standard_task_runner.py:83} INFO - Job 55: Subtask create_staging_table
+[2022-11-19T00:37:56.872+0000] {task_command.py:376} INFO - Running <TaskInstance: Call_Center_ETL_DAG.create_staging_table manual__2022-11-19T00:37:30.729010+00:00 [running]> on host b6a63ce50866
+[2022-11-19T00:37:58.002+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Abdelrhman Yassein
+AIRFLOW_CTX_DAG_ID=Call_Center_ETL_DAG
+AIRFLOW_CTX_TASK_ID=create_staging_table
+AIRFLOW_CTX_EXECUTION_DATE=2022-11-19T00:37:30.729010+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-11-19T00:37:30.729010+00:00
+[2022-11-19T00:37:58.005+0000] {mysql.py:84} INFO - Executing: 
+        create table staging_call(
+            id              varchar(255),
+            customer_name   varchar(255), 
+            sentiment       varchar(255),
+            csat_score      varchar(255),
+            call_timestamp  varchar(255),
+            reason          varchar(255),
+            city            varchar(255),
+            state           varchar(255),
+            channel         varchar(255),
+            response_time   varchar(255),
+            call_minutes    int,
+            call_center     varchar(255)
+        )
+    
+[2022-11-19T00:37:58.043+0000] {base.py:71} INFO - Using connection ID 'mysql_conn_id' for task execution.
+[2022-11-19T00:37:58.157+0000] {sql.py:315} INFO - Running statement: 
+        create table staging_call(
+            id              varchar(255),
+            customer_name   varchar(255), 
+            sentiment       varchar(255),
+            csat_score      varchar(255),
+            call_timestamp  varchar(255),
+            reason          varchar(255),
+            city            varchar(255),
+            state           varchar(255),
+            channel         varchar(255),
+            response_time   varchar(255),
+            call_minutes    int,
+            call_center     varchar(255)
+        )
+    , parameters: None
+[2022-11-19T00:37:59.142+0000] {sql.py:324} INFO - Rows affected: 0
+[2022-11-19T00:37:59.579+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=Call_Center_ETL_DAG, task_id=create_staging_table, execution_date=20221119T003730, start_date=20221119T003754, end_date=20221119T003759
+[2022-11-19T00:38:00.363+0000] {local_task_job.py:159} INFO - Task exited with return code 0
+[2022-11-19T00:38:01.049+0000] {taskinstance.py:2623} INFO - 0 downstream tasks scheduled from follow-on schedule check

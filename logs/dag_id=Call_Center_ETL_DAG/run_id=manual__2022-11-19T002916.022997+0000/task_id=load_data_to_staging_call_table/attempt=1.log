@@ -1,0 +1,62 @@
+[2022-11-19T00:29:28.924+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Call_Center_ETL_DAG.load_data_to_staging_call_table manual__2022-11-19T00:29:16.022997+00:00 [queued]>
+[2022-11-19T00:29:28.952+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Call_Center_ETL_DAG.load_data_to_staging_call_table manual__2022-11-19T00:29:16.022997+00:00 [queued]>
+[2022-11-19T00:29:28.954+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-19T00:29:28.957+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 1
+[2022-11-19T00:29:28.958+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-19T00:29:29.019+0000] {taskinstance.py:1383} INFO - Executing <Task(MySqlOperator): load_data_to_staging_call_table> on 2022-11-19 00:29:16.022997+00:00
+[2022-11-19T00:29:29.041+0000] {standard_task_runner.py:55} INFO - Started process 3066 to run task
+[2022-11-19T00:29:29.049+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Call_Center_ETL_DAG', 'load_data_to_staging_call_table', 'manual__2022-11-19T00:29:16.022997+00:00', '--job-id', '44', '--raw', '--subdir', 'DAGS_FOLDER/create_database_tables.py', '--cfg-path', '/tmp/tmpa1px4si2']
+[2022-11-19T00:29:29.074+0000] {standard_task_runner.py:83} INFO - Job 44: Subtask load_data_to_staging_call_table
+[2022-11-19T00:29:29.320+0000] {task_command.py:376} INFO - Running <TaskInstance: Call_Center_ETL_DAG.load_data_to_staging_call_table manual__2022-11-19T00:29:16.022997+00:00 [running]> on host b6a63ce50866
+[2022-11-19T00:29:29.551+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Abdelrhman Yassein
+AIRFLOW_CTX_DAG_ID=Call_Center_ETL_DAG
+AIRFLOW_CTX_TASK_ID=load_data_to_staging_call_table
+AIRFLOW_CTX_EXECUTION_DATE=2022-11-19T00:29:16.022997+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-11-19T00:29:16.022997+00:00
+[2022-11-19T00:29:29.553+0000] {mysql.py:84} INFO - Executing: 
+            SET GLOBAL local_infile=1;
+            SET GLOBAL  OPT_LOCAL_INFILE=1;
+            LOAD DATA LOCAL INFILE 'G:/docker-files/CallCenter.csv'
+            INTO TABLE staging_call
+            COLUMNS TERMINATED BY ','
+            OPTIONALLY ENCLOSED BY '"'
+            ESCAPED BY '"'
+            LINES TERMINATED BY '
+'
+            IGNORE 1 LINES;
+            
+[2022-11-19T00:29:29.575+0000] {base.py:71} INFO - Using connection ID 'mysql_conn_id' for task execution.
+[2022-11-19T00:29:29.658+0000] {sql.py:315} INFO - Running statement: 
+            SET GLOBAL local_infile=1;
+            SET GLOBAL  OPT_LOCAL_INFILE=1;
+            LOAD DATA LOCAL INFILE 'G:/docker-files/CallCenter.csv'
+            INTO TABLE staging_call
+            COLUMNS TERMINATED BY ','
+            OPTIONALLY ENCLOSED BY '"'
+            ESCAPED BY '"'
+            LINES TERMINATED BY '
+'
+            IGNORE 1 LINES;
+            , parameters: None
+[2022-11-19T00:29:29.669+0000] {sql.py:324} INFO - Rows affected: 0
+[2022-11-19T00:29:29.672+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/mysql/operators/mysql.py", line 86, in execute
+    hook.run(self.sql, autocommit=self.autocommit, parameters=self.parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 299, in run
+    results.append(result)
+  File "/usr/local/lib/python3.7/contextlib.py", line 298, in __exit__
+    self.thing.close()
+  File "/home/airflow/.local/lib/python3.7/site-packages/MySQLdb/cursors.py", line 83, in close
+    while self.nextset():
+  File "/home/airflow/.local/lib/python3.7/site-packages/MySQLdb/cursors.py", line 137, in nextset
+    nr = db.next_result()
+MySQLdb.OperationalError: (1193, "Unknown system variable 'OPT_LOCAL_INFILE'")
+[2022-11-19T00:29:29.705+0000] {taskinstance.py:1406} INFO - Marking task as FAILED. dag_id=Call_Center_ETL_DAG, task_id=load_data_to_staging_call_table, execution_date=20221119T002916, start_date=20221119T002928, end_date=20221119T002929
+[2022-11-19T00:29:29.736+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 44 for task load_data_to_staging_call_table ((1193, "Unknown system variable 'OPT_LOCAL_INFILE'"); 3066)
+[2022-11-19T00:29:29.771+0000] {local_task_job.py:159} INFO - Task exited with return code 1
+[2022-11-19T00:29:29.953+0000] {taskinstance.py:2623} INFO - 0 downstream tasks scheduled from follow-on schedule check

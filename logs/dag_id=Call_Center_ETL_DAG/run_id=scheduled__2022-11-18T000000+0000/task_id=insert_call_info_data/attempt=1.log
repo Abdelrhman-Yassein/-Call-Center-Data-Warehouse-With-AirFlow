@@ -1,0 +1,65 @@
+[2022-11-20T13:11:47.237+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Call_Center_ETL_DAG.insert_call_info_data scheduled__2022-11-18T00:00:00+00:00 [queued]>
+[2022-11-20T13:11:47.384+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Call_Center_ETL_DAG.insert_call_info_data scheduled__2022-11-18T00:00:00+00:00 [queued]>
+[2022-11-20T13:11:47.397+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-20T13:11:47.401+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 1
+[2022-11-20T13:11:47.415+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-20T13:11:47.787+0000] {taskinstance.py:1383} INFO - Executing <Task(MySqlOperator): insert_call_info_data> on 2022-11-18 00:00:00+00:00
+[2022-11-20T13:11:47.854+0000] {standard_task_runner.py:55} INFO - Started process 743 to run task
+[2022-11-20T13:11:47.902+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Call_Center_ETL_DAG', 'insert_call_info_data', 'scheduled__2022-11-18T00:00:00+00:00', '--job-id', '157', '--raw', '--subdir', 'DAGS_FOLDER/call_center_dag.py', '--cfg-path', '/tmp/tmprj1lzyzg']
+[2022-11-20T13:11:47.908+0000] {standard_task_runner.py:83} INFO - Job 157: Subtask insert_call_info_data
+[2022-11-20T13:11:48.891+0000] {task_command.py:376} INFO - Running <TaskInstance: Call_Center_ETL_DAG.insert_call_info_data scheduled__2022-11-18T00:00:00+00:00 [running]> on host 9eba6bc17a61
+[2022-11-20T13:11:50.371+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Abdelrhman Yassein
+AIRFLOW_CTX_DAG_ID=Call_Center_ETL_DAG
+AIRFLOW_CTX_TASK_ID=insert_call_info_data
+AIRFLOW_CTX_EXECUTION_DATE=2022-11-18T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-11-18T00:00:00+00:00
+[2022-11-20T13:11:50.394+0000] {mysql.py:84} INFO - Executing: 
+        INSERT INTO call_info(call_id,reason,channel,call_center,response_time)
+        SELECT DISTINCT
+            id as call_id,
+            reason,
+            channel,
+            call_center,
+            response_time
+        FROM 
+            staging_call
+        WHERE
+            id IS NOT NULL;
+            
+[2022-11-20T13:11:50.686+0000] {base.py:71} INFO - Using connection ID 'mysql_conn_id' for task execution.
+[2022-11-20T13:11:51.141+0000] {sql.py:315} INFO - Running statement: 
+        INSERT INTO call_info(call_id,reason,channel,call_center,response_time)
+        SELECT DISTINCT
+            id as call_id,
+            reason,
+            channel,
+            call_center,
+            response_time
+        FROM 
+            staging_call
+        WHERE
+            id IS NOT NULL;
+            , parameters: None
+[2022-11-20T13:11:51.191+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/mysql/operators/mysql.py", line 86, in execute
+    hook.run(self.sql, autocommit=self.autocommit, parameters=self.parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 295, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 320, in _run_command
+    cur.execute(sql_statement)
+  File "/home/airflow/.local/lib/python3.7/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/home/airflow/.local/lib/python3.7/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/home/airflow/.local/lib/python3.7/site-packages/MySQLdb/connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+MySQLdb.ProgrammingError: (1146, "Table 'call_center.call_info' doesn't exist")
+[2022-11-20T13:11:51.264+0000] {taskinstance.py:1406} INFO - Marking task as FAILED. dag_id=Call_Center_ETL_DAG, task_id=insert_call_info_data, execution_date=20221118T000000, start_date=20221120T131147, end_date=20221120T131151
+[2022-11-20T13:11:51.786+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 157 for task insert_call_info_data ((1146, "Table 'call_center.call_info' doesn't exist"); 743)
+[2022-11-20T13:11:52.120+0000] {local_task_job.py:159} INFO - Task exited with return code 1
+[2022-11-20T13:11:52.512+0000] {taskinstance.py:2623} INFO - 0 downstream tasks scheduled from follow-on schedule check

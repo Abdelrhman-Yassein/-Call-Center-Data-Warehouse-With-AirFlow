@@ -1,0 +1,342 @@
+[2022-11-18T23:43:01.916+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Call_Center_ETL_DAG.Drop_Tables scheduled__2022-11-18T00:00:00+00:00 [queued]>
+[2022-11-18T23:43:01.968+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Call_Center_ETL_DAG.Drop_Tables scheduled__2022-11-18T00:00:00+00:00 [queued]>
+[2022-11-18T23:43:01.970+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-18T23:43:01.972+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 1
+[2022-11-18T23:43:01.974+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-18T23:43:02.117+0000] {taskinstance.py:1383} INFO - Executing <Task(MySqlOperator): Drop_Tables> on 2022-11-18 00:00:00+00:00
+[2022-11-18T23:43:02.140+0000] {standard_task_runner.py:55} INFO - Started process 1425 to run task
+[2022-11-18T23:43:02.171+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Call_Center_ETL_DAG', 'Drop_Tables', 'scheduled__2022-11-18T00:00:00+00:00', '--job-id', '10', '--raw', '--subdir', 'DAGS_FOLDER/create_database_tables.py', '--cfg-path', '/tmp/tmpobx06v1j']
+[2022-11-18T23:43:02.191+0000] {standard_task_runner.py:83} INFO - Job 10: Subtask Drop_Tables
+[2022-11-18T23:43:03.045+0000] {task_command.py:376} INFO - Running <TaskInstance: Call_Center_ETL_DAG.Drop_Tables scheduled__2022-11-18T00:00:00+00:00 [running]> on host b6a63ce50866
+[2022-11-18T23:43:04.198+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Abdelrhman Yassein
+AIRFLOW_CTX_DAG_ID=Call_Center_ETL_DAG
+AIRFLOW_CTX_TASK_ID=Drop_Tables
+AIRFLOW_CTX_EXECUTION_DATE=2022-11-18T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-11-18T00:00:00+00:00
+[2022-11-18T23:43:04.227+0000] {mysql.py:84} INFO - Executing: 
+    DROP TABLE IF EXISTS staging_call;
+    DROP TABLE IF EXISTS call_info;
+    DROP TABLE IF EXISTS call_fact;
+    DROP TABLE IF EXISTS customers;
+    DROP TABLE IF EXISTS call_time;
+    
+[2022-11-18T23:43:04.298+0000] {base.py:71} INFO - Using connection ID 'mysql_conn_id' for task execution.
+[2022-11-18T23:43:04.546+0000] {sql.py:315} INFO - Running statement: 
+    DROP TABLE IF EXISTS staging_call;
+    DROP TABLE IF EXISTS call_info;
+    DROP TABLE IF EXISTS call_fact;
+    DROP TABLE IF EXISTS customers;
+    DROP TABLE IF EXISTS call_time;
+    , parameters: None
+[2022-11-18T23:43:04.567+0000] {sql.py:324} INFO - Rows affected: 0
+[2022-11-18T23:43:04.678+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=Call_Center_ETL_DAG, task_id=Drop_Tables, execution_date=20221118T000000, start_date=20221118T234301, end_date=20221118T234304
+[2022-11-18T23:43:04.809+0000] {local_task_job.py:159} INFO - Task exited with return code 0
+[2022-11-18T23:43:04.960+0000] {taskinstance.py:2623} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2022-11-19T00:22:15.127+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Call_Center_ETL_DAG.Drop_Tables scheduled__2022-11-18T00:00:00+00:00 [queued]>
+[2022-11-19T00:22:15.180+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Call_Center_ETL_DAG.Drop_Tables scheduled__2022-11-18T00:00:00+00:00 [queued]>
+[2022-11-19T00:22:15.182+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-19T00:22:15.184+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 1
+[2022-11-19T00:22:15.186+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-19T00:22:15.283+0000] {taskinstance.py:1383} INFO - Executing <Task(MySqlOperator): Drop_Tables> on 2022-11-18 00:00:00+00:00
+[2022-11-19T00:22:15.314+0000] {standard_task_runner.py:55} INFO - Started process 2797 to run task
+[2022-11-19T00:22:15.335+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Call_Center_ETL_DAG', 'Drop_Tables', 'scheduled__2022-11-18T00:00:00+00:00', '--job-id', '31', '--raw', '--subdir', 'DAGS_FOLDER/create_database_tables.py', '--cfg-path', '/tmp/tmpxbsdk3i0']
+[2022-11-19T00:22:15.398+0000] {standard_task_runner.py:83} INFO - Job 31: Subtask Drop_Tables
+[2022-11-19T00:22:15.846+0000] {task_command.py:376} INFO - Running <TaskInstance: Call_Center_ETL_DAG.Drop_Tables scheduled__2022-11-18T00:00:00+00:00 [running]> on host b6a63ce50866
+[2022-11-19T00:22:16.828+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Abdelrhman Yassein
+AIRFLOW_CTX_DAG_ID=Call_Center_ETL_DAG
+AIRFLOW_CTX_TASK_ID=Drop_Tables
+AIRFLOW_CTX_EXECUTION_DATE=2022-11-18T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-11-18T00:00:00+00:00
+[2022-11-19T00:22:16.830+0000] {mysql.py:84} INFO - Executing: 
+    DROP TABLE IF EXISTS staging_call;
+    DROP TABLE IF EXISTS call_info;
+    DROP TABLE IF EXISTS call_fact;
+    DROP TABLE IF EXISTS customers;
+    DROP TABLE IF EXISTS call_time;
+    
+[2022-11-19T00:22:16.965+0000] {base.py:71} INFO - Using connection ID 'mysql_conn_id' for task execution.
+[2022-11-19T00:22:17.104+0000] {sql.py:315} INFO - Running statement: 
+    DROP TABLE IF EXISTS staging_call;
+    DROP TABLE IF EXISTS call_info;
+    DROP TABLE IF EXISTS call_fact;
+    DROP TABLE IF EXISTS customers;
+    DROP TABLE IF EXISTS call_time;
+    , parameters: None
+[2022-11-19T00:22:17.996+0000] {sql.py:324} INFO - Rows affected: 0
+[2022-11-19T00:22:18.614+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=Call_Center_ETL_DAG, task_id=Drop_Tables, execution_date=20221118T000000, start_date=20221119T002215, end_date=20221119T002218
+[2022-11-19T00:22:18.931+0000] {local_task_job.py:159} INFO - Task exited with return code 0
+[2022-11-19T00:22:19.488+0000] {taskinstance.py:2623} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2022-11-19T00:44:24.817+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Call_Center_ETL_DAG.Drop_Tables scheduled__2022-11-18T00:00:00+00:00 [queued]>
+[2022-11-19T00:44:24.929+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Call_Center_ETL_DAG.Drop_Tables scheduled__2022-11-18T00:00:00+00:00 [queued]>
+[2022-11-19T00:44:24.935+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-19T00:44:24.938+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 1
+[2022-11-19T00:44:24.940+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-19T00:44:25.269+0000] {taskinstance.py:1383} INFO - Executing <Task(MySqlOperator): Drop_Tables> on 2022-11-18 00:00:00+00:00
+[2022-11-19T00:44:25.305+0000] {standard_task_runner.py:55} INFO - Started process 3664 to run task
+[2022-11-19T00:44:25.355+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Call_Center_ETL_DAG', 'Drop_Tables', 'scheduled__2022-11-18T00:00:00+00:00', '--job-id', '70', '--raw', '--subdir', 'DAGS_FOLDER/create_database_tables.py', '--cfg-path', '/tmp/tmpbnx8epah']
+[2022-11-19T00:44:25.512+0000] {standard_task_runner.py:83} INFO - Job 70: Subtask Drop_Tables
+[2022-11-19T00:44:27.374+0000] {task_command.py:376} INFO - Running <TaskInstance: Call_Center_ETL_DAG.Drop_Tables scheduled__2022-11-18T00:00:00+00:00 [running]> on host b6a63ce50866
+[2022-11-19T00:44:28.899+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Abdelrhman Yassein
+AIRFLOW_CTX_DAG_ID=Call_Center_ETL_DAG
+AIRFLOW_CTX_TASK_ID=Drop_Tables
+AIRFLOW_CTX_EXECUTION_DATE=2022-11-18T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-11-18T00:00:00+00:00
+[2022-11-19T00:44:28.902+0000] {mysql.py:84} INFO - Executing: 
+    DROP TABLE IF EXISTS staging_call;
+    DROP TABLE IF EXISTS call_info;
+    DROP TABLE IF EXISTS call_fact;
+    DROP TABLE IF EXISTS customers;
+    DROP TABLE IF EXISTS call_time;
+    
+[2022-11-19T00:44:29.068+0000] {base.py:71} INFO - Using connection ID 'mysql_conn_id' for task execution.
+[2022-11-19T00:44:29.685+0000] {sql.py:315} INFO - Running statement: 
+    DROP TABLE IF EXISTS staging_call;
+    DROP TABLE IF EXISTS call_info;
+    DROP TABLE IF EXISTS call_fact;
+    DROP TABLE IF EXISTS customers;
+    DROP TABLE IF EXISTS call_time;
+    , parameters: None
+[2022-11-19T00:44:29.732+0000] {sql.py:324} INFO - Rows affected: 0
+[2022-11-19T00:44:29.954+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=Call_Center_ETL_DAG, task_id=Drop_Tables, execution_date=20221118T000000, start_date=20221119T004424, end_date=20221119T004429
+[2022-11-19T00:44:30.231+0000] {local_task_job.py:159} INFO - Task exited with return code 0
+[2022-11-19T00:44:30.760+0000] {taskinstance.py:2623} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2022-11-19T12:12:48.265+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Call_Center_ETL_DAG.Drop_Tables scheduled__2022-11-18T00:00:00+00:00 [queued]>
+[2022-11-19T12:12:48.313+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Call_Center_ETL_DAG.Drop_Tables scheduled__2022-11-18T00:00:00+00:00 [queued]>
+[2022-11-19T12:12:48.314+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-19T12:12:48.315+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 1
+[2022-11-19T12:12:48.317+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-19T12:12:48.403+0000] {taskinstance.py:1383} INFO - Executing <Task(MySqlOperator): Drop_Tables> on 2022-11-18 00:00:00+00:00
+[2022-11-19T12:12:48.434+0000] {standard_task_runner.py:55} INFO - Started process 117 to run task
+[2022-11-19T12:12:48.465+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Call_Center_ETL_DAG', 'Drop_Tables', 'scheduled__2022-11-18T00:00:00+00:00', '--job-id', '82', '--raw', '--subdir', 'DAGS_FOLDER/create_database_tables.py', '--cfg-path', '/tmp/tmplbe6vs24']
+[2022-11-19T12:12:48.472+0000] {standard_task_runner.py:83} INFO - Job 82: Subtask Drop_Tables
+[2022-11-19T12:12:48.783+0000] {task_command.py:376} INFO - Running <TaskInstance: Call_Center_ETL_DAG.Drop_Tables scheduled__2022-11-18T00:00:00+00:00 [running]> on host 6e77c1f44c06
+[2022-11-19T12:12:49.434+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Abdelrhman Yassein
+AIRFLOW_CTX_DAG_ID=Call_Center_ETL_DAG
+AIRFLOW_CTX_TASK_ID=Drop_Tables
+AIRFLOW_CTX_EXECUTION_DATE=2022-11-18T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-11-18T00:00:00+00:00
+[2022-11-19T12:12:49.467+0000] {mysql.py:84} INFO - Executing: 
+    DROP TABLE IF EXISTS staging_call;
+    DROP TABLE IF EXISTS call_info;
+    DROP TABLE IF EXISTS call_fact;
+    DROP TABLE IF EXISTS customers;
+    DROP TABLE IF EXISTS call_time;
+    
+[2022-11-19T12:12:49.601+0000] {base.py:71} INFO - Using connection ID 'mysql_conn_id' for task execution.
+[2022-11-19T12:12:50.326+0000] {sql.py:315} INFO - Running statement: 
+    DROP TABLE IF EXISTS staging_call;
+    DROP TABLE IF EXISTS call_info;
+    DROP TABLE IF EXISTS call_fact;
+    DROP TABLE IF EXISTS customers;
+    DROP TABLE IF EXISTS call_time;
+    , parameters: None
+[2022-11-19T12:12:50.459+0000] {sql.py:324} INFO - Rows affected: 0
+[2022-11-19T12:12:50.594+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=Call_Center_ETL_DAG, task_id=Drop_Tables, execution_date=20221118T000000, start_date=20221119T121248, end_date=20221119T121250
+[2022-11-19T12:12:50.706+0000] {local_task_job.py:159} INFO - Task exited with return code 0
+[2022-11-19T12:12:50.783+0000] {taskinstance.py:2623} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2022-11-19T12:24:50.103+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Call_Center_ETL_DAG.Drop_Tables scheduled__2022-11-18T00:00:00+00:00 [queued]>
+[2022-11-19T12:24:50.491+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Call_Center_ETL_DAG.Drop_Tables scheduled__2022-11-18T00:00:00+00:00 [queued]>
+[2022-11-19T12:24:50.967+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-19T12:24:51.031+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 1
+[2022-11-19T12:24:51.144+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-19T12:24:53.537+0000] {taskinstance.py:1383} INFO - Executing <Task(MySqlOperator): Drop_Tables> on 2022-11-18 00:00:00+00:00
+[2022-11-19T12:24:53.648+0000] {standard_task_runner.py:55} INFO - Started process 584 to run task
+[2022-11-19T12:24:53.698+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Call_Center_ETL_DAG', 'Drop_Tables', 'scheduled__2022-11-18T00:00:00+00:00', '--job-id', '87', '--raw', '--subdir', 'DAGS_FOLDER/create_database_tables.py', '--cfg-path', '/tmp/tmpkogc7_j4']
+[2022-11-19T12:24:53.807+0000] {standard_task_runner.py:83} INFO - Job 87: Subtask Drop_Tables
+[2022-11-19T12:24:56.940+0000] {task_command.py:376} INFO - Running <TaskInstance: Call_Center_ETL_DAG.Drop_Tables scheduled__2022-11-18T00:00:00+00:00 [running]> on host 6e77c1f44c06
+[2022-11-19T12:25:01.765+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Abdelrhman Yassein
+AIRFLOW_CTX_DAG_ID=Call_Center_ETL_DAG
+AIRFLOW_CTX_TASK_ID=Drop_Tables
+AIRFLOW_CTX_EXECUTION_DATE=2022-11-18T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-11-18T00:00:00+00:00
+[2022-11-19T12:25:01.913+0000] {mysql.py:84} INFO - Executing: 
+    DROP TABLE IF EXISTS staging_call;
+    DROP TABLE IF EXISTS call_info;
+    DROP TABLE IF EXISTS call_fact;
+    DROP TABLE IF EXISTS customers;
+    DROP TABLE IF EXISTS call_time;
+    
+[2022-11-19T12:25:02.342+0000] {base.py:71} INFO - Using connection ID 'mysql_conn_id' for task execution.
+[2022-11-19T12:25:06.146+0000] {sql.py:315} INFO - Running statement: 
+    DROP TABLE IF EXISTS staging_call;
+    DROP TABLE IF EXISTS call_info;
+    DROP TABLE IF EXISTS call_fact;
+    DROP TABLE IF EXISTS customers;
+    DROP TABLE IF EXISTS call_time;
+    , parameters: None
+[2022-11-19T12:25:08.663+0000] {sql.py:324} INFO - Rows affected: 0
+[2022-11-19T12:25:09.917+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=Call_Center_ETL_DAG, task_id=Drop_Tables, execution_date=20221118T000000, start_date=20221119T122450, end_date=20221119T122509
+[2022-11-19T12:25:13.171+0000] {local_task_job.py:159} INFO - Task exited with return code 0
+[2022-11-19T12:25:15.852+0000] {taskinstance.py:2623} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2022-11-19T12:33:08.415+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Call_Center_ETL_DAG.Drop_Tables scheduled__2022-11-18T00:00:00+00:00 [None]>
+[2022-11-19T12:33:11.592+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Call_Center_ETL_DAG.Drop_Tables scheduled__2022-11-18T00:00:00+00:00 [None]>
+[2022-11-19T12:33:11.614+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-19T12:33:11.677+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 1
+[2022-11-19T12:33:11.710+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-19T12:33:22.105+0000] {taskinstance.py:1383} INFO - Executing <Task(MySqlOperator): Drop_Tables> on 2022-11-18 00:00:00+00:00
+[2022-11-19T12:33:23.456+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Call_Center_ETL_DAG', 'Drop_Tables', 'scheduled__2022-11-18T00:00:00+00:00', '--job-id', '92', '--raw', '--subdir', 'DAGS_FOLDER/create_database_tables.py', '--cfg-path', '/tmp/tmppnmb6fvr']
+[2022-11-19T12:33:23.459+0000] {standard_task_runner.py:55} INFO - Started process 816 to run task
+[2022-11-19T12:33:23.636+0000] {standard_task_runner.py:83} INFO - Job 92: Subtask Drop_Tables
+[2022-11-19T12:33:38.638+0000] {task_command.py:376} INFO - Running <TaskInstance: Call_Center_ETL_DAG.Drop_Tables scheduled__2022-11-18T00:00:00+00:00 [running]> on host 6e77c1f44c06
+[2022-11-19T12:33:57.006+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Abdelrhman Yassein
+AIRFLOW_CTX_DAG_ID=Call_Center_ETL_DAG
+AIRFLOW_CTX_TASK_ID=Drop_Tables
+AIRFLOW_CTX_EXECUTION_DATE=2022-11-18T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-11-18T00:00:00+00:00
+[2022-11-19T12:33:57.026+0000] {mysql.py:84} INFO - Executing: 
+    DROP TABLE IF EXISTS staging_call;
+    DROP TABLE IF EXISTS call_info;
+    DROP TABLE IF EXISTS call_fact;
+    DROP TABLE IF EXISTS customers;
+    DROP TABLE IF EXISTS call_time;
+    
+[2022-11-19T12:33:58.897+0000] {base.py:71} INFO - Using connection ID 'mysql_conn_id' for task execution.
+[2022-11-19T12:34:03.111+0000] {sql.py:315} INFO - Running statement: 
+    DROP TABLE IF EXISTS staging_call;
+    DROP TABLE IF EXISTS call_info;
+    DROP TABLE IF EXISTS call_fact;
+    DROP TABLE IF EXISTS customers;
+    DROP TABLE IF EXISTS call_time;
+    , parameters: None
+[2022-11-19T12:34:03.252+0000] {sql.py:324} INFO - Rows affected: 0
+[2022-11-19T12:34:04.586+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=Call_Center_ETL_DAG, task_id=Drop_Tables, execution_date=20221118T000000, start_date=20221119T123309, end_date=20221119T123404
+[2022-11-19T12:34:08.442+0000] {local_task_job.py:159} INFO - Task exited with return code 0
+[2022-11-19T12:34:11.921+0000] {taskinstance.py:2623} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2022-11-20T00:39:10.762+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Call_Center_ETL_DAG.Drop_Tables scheduled__2022-11-18T00:00:00+00:00 [queued]>
+[2022-11-20T00:39:10.891+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Call_Center_ETL_DAG.Drop_Tables scheduled__2022-11-18T00:00:00+00:00 [queued]>
+[2022-11-20T00:39:10.894+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-20T00:39:10.899+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 1
+[2022-11-20T00:39:10.906+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-20T00:39:11.444+0000] {taskinstance.py:1383} INFO - Executing <Task(MySqlOperator): Drop_Tables> on 2022-11-18 00:00:00+00:00
+[2022-11-20T00:39:11.475+0000] {standard_task_runner.py:55} INFO - Started process 3273 to run task
+[2022-11-20T00:39:11.583+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Call_Center_ETL_DAG', 'Drop_Tables', 'scheduled__2022-11-18T00:00:00+00:00', '--job-id', '117', '--raw', '--subdir', 'DAGS_FOLDER/call_center_dag.py', '--cfg-path', '/tmp/tmpon9yalh4']
+[2022-11-20T00:39:11.602+0000] {standard_task_runner.py:83} INFO - Job 117: Subtask Drop_Tables
+[2022-11-20T00:39:12.381+0000] {task_command.py:376} INFO - Running <TaskInstance: Call_Center_ETL_DAG.Drop_Tables scheduled__2022-11-18T00:00:00+00:00 [running]> on host 9eba6bc17a61
+[2022-11-20T00:39:13.013+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Abdelrhman Yassein
+AIRFLOW_CTX_DAG_ID=Call_Center_ETL_DAG
+AIRFLOW_CTX_TASK_ID=Drop_Tables
+AIRFLOW_CTX_EXECUTION_DATE=2022-11-18T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-11-18T00:00:00+00:00
+[2022-11-20T00:39:13.027+0000] {mysql.py:84} INFO - Executing: 
+    DROP TABLE IF EXISTS staging_call;
+    DROP TABLE IF EXISTS call_info;
+    DROP TABLE IF EXISTS call_fact;
+    DROP TABLE IF EXISTS customers;
+    DROP TABLE IF EXISTS call_time;
+    
+[2022-11-20T00:39:13.090+0000] {base.py:71} INFO - Using connection ID 'mysql_conn_id' for task execution.
+[2022-11-20T00:39:13.382+0000] {sql.py:315} INFO - Running statement: 
+    DROP TABLE IF EXISTS staging_call;
+    DROP TABLE IF EXISTS call_info;
+    DROP TABLE IF EXISTS call_fact;
+    DROP TABLE IF EXISTS customers;
+    DROP TABLE IF EXISTS call_time;
+    , parameters: None
+[2022-11-20T00:39:13.519+0000] {sql.py:324} INFO - Rows affected: 0
+[2022-11-20T00:39:14.480+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=Call_Center_ETL_DAG, task_id=Drop_Tables, execution_date=20221118T000000, start_date=20221120T003910, end_date=20221120T003914
+[2022-11-20T00:39:14.967+0000] {local_task_job.py:159} INFO - Task exited with return code 0
+[2022-11-20T00:39:15.777+0000] {taskinstance.py:2623} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2022-11-20T00:41:30.333+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Call_Center_ETL_DAG.Drop_Tables scheduled__2022-11-18T00:00:00+00:00 [queued]>
+[2022-11-20T00:41:30.362+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Call_Center_ETL_DAG.Drop_Tables scheduled__2022-11-18T00:00:00+00:00 [queued]>
+[2022-11-20T00:41:30.365+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-20T00:41:30.366+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 1
+[2022-11-20T00:41:30.367+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-20T00:41:30.433+0000] {taskinstance.py:1383} INFO - Executing <Task(MySqlOperator): Drop_Tables> on 2022-11-18 00:00:00+00:00
+[2022-11-20T00:41:30.444+0000] {standard_task_runner.py:55} INFO - Started process 3381 to run task
+[2022-11-20T00:41:30.465+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Call_Center_ETL_DAG', 'Drop_Tables', 'scheduled__2022-11-18T00:00:00+00:00', '--job-id', '127', '--raw', '--subdir', 'DAGS_FOLDER/call_center_dag.py', '--cfg-path', '/tmp/tmp6ct_aiah']
+[2022-11-20T00:41:30.467+0000] {standard_task_runner.py:83} INFO - Job 127: Subtask Drop_Tables
+[2022-11-20T00:41:30.632+0000] {task_command.py:376} INFO - Running <TaskInstance: Call_Center_ETL_DAG.Drop_Tables scheduled__2022-11-18T00:00:00+00:00 [running]> on host 9eba6bc17a61
+[2022-11-20T00:41:30.770+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Abdelrhman Yassein
+AIRFLOW_CTX_DAG_ID=Call_Center_ETL_DAG
+AIRFLOW_CTX_TASK_ID=Drop_Tables
+AIRFLOW_CTX_EXECUTION_DATE=2022-11-18T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-11-18T00:00:00+00:00
+[2022-11-20T00:41:30.772+0000] {mysql.py:84} INFO - Executing: 
+    DROP TABLE IF EXISTS staging_call;
+    DROP TABLE IF EXISTS call_info;
+    DROP TABLE IF EXISTS call_fact;
+    DROP TABLE IF EXISTS customers;
+    DROP TABLE IF EXISTS call_time;
+    
+[2022-11-20T00:41:30.795+0000] {base.py:71} INFO - Using connection ID 'mysql_conn_id' for task execution.
+[2022-11-20T00:41:30.847+0000] {sql.py:315} INFO - Running statement: 
+    DROP TABLE IF EXISTS staging_call;
+    DROP TABLE IF EXISTS call_info;
+    DROP TABLE IF EXISTS call_fact;
+    DROP TABLE IF EXISTS customers;
+    DROP TABLE IF EXISTS call_time;
+    , parameters: None
+[2022-11-20T00:41:30.933+0000] {sql.py:324} INFO - Rows affected: 0
+[2022-11-20T00:41:31.064+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=Call_Center_ETL_DAG, task_id=Drop_Tables, execution_date=20221118T000000, start_date=20221120T004130, end_date=20221120T004131
+[2022-11-20T00:41:31.159+0000] {local_task_job.py:159} INFO - Task exited with return code 0
+[2022-11-20T00:41:31.233+0000] {taskinstance.py:2623} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2022-11-20T13:10:47.754+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Call_Center_ETL_DAG.Drop_Tables scheduled__2022-11-18T00:00:00+00:00 [queued]>
+[2022-11-20T13:10:47.911+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Call_Center_ETL_DAG.Drop_Tables scheduled__2022-11-18T00:00:00+00:00 [queued]>
+[2022-11-20T13:10:47.913+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-20T13:10:47.930+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 1
+[2022-11-20T13:10:47.941+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-20T13:10:48.135+0000] {taskinstance.py:1383} INFO - Executing <Task(MySqlOperator): Drop_Tables> on 2022-11-18 00:00:00+00:00
+[2022-11-20T13:10:48.193+0000] {standard_task_runner.py:55} INFO - Started process 689 to run task
+[2022-11-20T13:10:48.233+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Call_Center_ETL_DAG', 'Drop_Tables', 'scheduled__2022-11-18T00:00:00+00:00', '--job-id', '147', '--raw', '--subdir', 'DAGS_FOLDER/call_center_dag.py', '--cfg-path', '/tmp/tmpzzv09bw6']
+[2022-11-20T13:10:48.247+0000] {standard_task_runner.py:83} INFO - Job 147: Subtask Drop_Tables
+[2022-11-20T13:10:48.792+0000] {task_command.py:376} INFO - Running <TaskInstance: Call_Center_ETL_DAG.Drop_Tables scheduled__2022-11-18T00:00:00+00:00 [running]> on host 9eba6bc17a61
+[2022-11-20T13:10:49.547+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Abdelrhman Yassein
+AIRFLOW_CTX_DAG_ID=Call_Center_ETL_DAG
+AIRFLOW_CTX_TASK_ID=Drop_Tables
+AIRFLOW_CTX_EXECUTION_DATE=2022-11-18T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-11-18T00:00:00+00:00
+[2022-11-20T13:10:49.563+0000] {mysql.py:84} INFO - Executing: 
+    DROP TABLE IF EXISTS staging_call;
+    DROP TABLE IF EXISTS call_info;
+    DROP TABLE IF EXISTS call_fact;
+    DROP TABLE IF EXISTS customers;
+    DROP TABLE IF EXISTS call_time;
+    
+[2022-11-20T13:10:49.901+0000] {base.py:71} INFO - Using connection ID 'mysql_conn_id' for task execution.
+[2022-11-20T13:11:01.422+0000] {sql.py:315} INFO - Running statement: 
+    DROP TABLE IF EXISTS staging_call;
+    DROP TABLE IF EXISTS call_info;
+    DROP TABLE IF EXISTS call_fact;
+    DROP TABLE IF EXISTS customers;
+    DROP TABLE IF EXISTS call_time;
+    , parameters: None
+[2022-11-20T13:11:01.572+0000] {sql.py:324} INFO - Rows affected: 0
+[2022-11-20T13:11:02.474+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=Call_Center_ETL_DAG, task_id=Drop_Tables, execution_date=20221118T000000, start_date=20221120T131047, end_date=20221120T131102
+[2022-11-20T13:11:02.543+0000] {local_task_job.py:159} INFO - Task exited with return code 0
+[2022-11-20T13:11:02.606+0000] {taskinstance.py:2623} INFO - 1 downstream tasks scheduled from follow-on schedule check

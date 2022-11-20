@@ -1,0 +1,30 @@
+[2022-11-20T13:12:42.382+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Call_Center_ETL_DAG.Run_data_quality_checks manual__2022-11-20T13:11:29.360405+00:00 [queued]>
+[2022-11-20T13:12:42.403+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Call_Center_ETL_DAG.Run_data_quality_checks manual__2022-11-20T13:11:29.360405+00:00 [queued]>
+[2022-11-20T13:12:42.404+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-20T13:12:42.406+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 1
+[2022-11-20T13:12:42.407+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-20T13:12:42.446+0000] {taskinstance.py:1383} INFO - Executing <Task(DataQualityOperator): Run_data_quality_checks> on 2022-11-20 13:11:29.360405+00:00
+[2022-11-20T13:12:42.457+0000] {standard_task_runner.py:55} INFO - Started process 779 to run task
+[2022-11-20T13:12:42.465+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Call_Center_ETL_DAG', 'Run_data_quality_checks', 'manual__2022-11-20T13:11:29.360405+00:00', '--job-id', '165', '--raw', '--subdir', 'DAGS_FOLDER/call_center_dag.py', '--cfg-path', '/tmp/tmpb2d51z3s']
+[2022-11-20T13:12:42.467+0000] {standard_task_runner.py:83} INFO - Job 165: Subtask Run_data_quality_checks
+[2022-11-20T13:12:42.638+0000] {task_command.py:376} INFO - Running <TaskInstance: Call_Center_ETL_DAG.Run_data_quality_checks manual__2022-11-20T13:11:29.360405+00:00 [running]> on host 9eba6bc17a61
+[2022-11-20T13:12:42.834+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Abdelrhman Yassein
+AIRFLOW_CTX_DAG_ID=Call_Center_ETL_DAG
+AIRFLOW_CTX_TASK_ID=Run_data_quality_checks
+AIRFLOW_CTX_EXECUTION_DATE=2022-11-20T13:11:29.360405+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-11-20T13:11:29.360405+00:00
+[2022-11-20T13:12:42.861+0000] {base.py:71} INFO - Using connection ID 'mysql_conn_id' for task execution.
+[2022-11-20T13:12:42.943+0000] {data_quality.py:59} INFO - Data quality on table customers check passed with 32941 records
+[2022-11-20T13:12:42.963+0000] {base.py:71} INFO - Using connection ID 'mysql_conn_id' for task execution.
+[2022-11-20T13:12:43.005+0000] {data_quality.py:59} INFO - Data quality on table call_fact check passed with 32941 records
+[2022-11-20T13:12:43.020+0000] {base.py:71} INFO - Using connection ID 'mysql_conn_id' for task execution.
+[2022-11-20T13:12:43.070+0000] {data_quality.py:59} INFO - Data quality on table call_time check passed with 31 records
+[2022-11-20T13:12:43.085+0000] {base.py:71} INFO - Using connection ID 'mysql_conn_id' for task execution.
+[2022-11-20T13:12:43.129+0000] {data_quality.py:59} INFO - Data quality on table call_info check passed with 32941 records
+[2022-11-20T13:12:43.158+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=Call_Center_ETL_DAG, task_id=Run_data_quality_checks, execution_date=20221120T131129, start_date=20221120T131242, end_date=20221120T131243
+[2022-11-20T13:12:43.243+0000] {local_task_job.py:159} INFO - Task exited with return code 0
+[2022-11-20T13:12:43.308+0000] {taskinstance.py:2623} INFO - 0 downstream tasks scheduled from follow-on schedule check

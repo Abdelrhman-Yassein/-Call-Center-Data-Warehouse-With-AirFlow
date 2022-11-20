@@ -1,0 +1,59 @@
+[2022-11-20T00:40:45.523+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Call_Center_ETL_DAG.load_data_to_staging_call_table manual__2022-11-20T00:40:34.064459+00:00 [queued]>
+[2022-11-20T00:40:45.555+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Call_Center_ETL_DAG.load_data_to_staging_call_table manual__2022-11-20T00:40:34.064459+00:00 [queued]>
+[2022-11-20T00:40:45.556+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-20T00:40:45.558+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 1
+[2022-11-20T00:40:45.559+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-20T00:40:45.608+0000] {taskinstance.py:1383} INFO - Executing <Task(MySqlOperator): load_data_to_staging_call_table> on 2022-11-20 00:40:34.064459+00:00
+[2022-11-20T00:40:45.621+0000] {standard_task_runner.py:55} INFO - Started process 3348 to run task
+[2022-11-20T00:40:45.635+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Call_Center_ETL_DAG', 'load_data_to_staging_call_table', 'manual__2022-11-20T00:40:34.064459+00:00', '--job-id', '124', '--raw', '--subdir', 'DAGS_FOLDER/call_center_dag.py', '--cfg-path', '/tmp/tmp51frimkf']
+[2022-11-20T00:40:45.636+0000] {standard_task_runner.py:83} INFO - Job 124: Subtask load_data_to_staging_call_table
+[2022-11-20T00:40:45.929+0000] {task_command.py:376} INFO - Running <TaskInstance: Call_Center_ETL_DAG.load_data_to_staging_call_table manual__2022-11-20T00:40:34.064459+00:00 [running]> on host 9eba6bc17a61
+[2022-11-20T00:40:46.246+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Abdelrhman Yassein
+AIRFLOW_CTX_DAG_ID=Call_Center_ETL_DAG
+AIRFLOW_CTX_TASK_ID=load_data_to_staging_call_table
+AIRFLOW_CTX_EXECUTION_DATE=2022-11-20T00:40:34.064459+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-11-20T00:40:34.064459+00:00
+[2022-11-20T00:40:46.249+0000] {mysql.py:84} INFO - Executing: 
+            LOAD DATA LOCAL INFILE '/opt/***/data/CallCenter.csv'
+            INTO TABLE staging_call
+            COLUMNS TERMINATED BY ','
+            OPTIONALLY ENCLOSED BY '"'
+            ESCAPED BY '"'
+            LINES TERMINATED BY '
+'
+            IGNORE 1 LINES;
+            
+[2022-11-20T00:40:46.284+0000] {base.py:71} INFO - Using connection ID 'mysql_conn_id' for task execution.
+[2022-11-20T00:40:46.389+0000] {sql.py:315} INFO - Running statement: 
+            LOAD DATA LOCAL INFILE '/opt/***/data/CallCenter.csv'
+            INTO TABLE staging_call
+            COLUMNS TERMINATED BY ','
+            OPTIONALLY ENCLOSED BY '"'
+            ESCAPED BY '"'
+            LINES TERMINATED BY '
+'
+            IGNORE 1 LINES;
+            , parameters: None
+[2022-11-20T00:40:46.394+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/mysql/operators/mysql.py", line 86, in execute
+    hook.run(self.sql, autocommit=self.autocommit, parameters=self.parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 295, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 320, in _run_command
+    cur.execute(sql_statement)
+  File "/home/airflow/.local/lib/python3.7/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/home/airflow/.local/lib/python3.7/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/home/airflow/.local/lib/python3.7/site-packages/MySQLdb/connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+MySQLdb.OperationalError: (3948, 'Loading local data is disabled; this must be enabled on both the client and server sides')
+[2022-11-20T00:40:46.423+0000] {taskinstance.py:1406} INFO - Marking task as FAILED. dag_id=Call_Center_ETL_DAG, task_id=load_data_to_staging_call_table, execution_date=20221120T004034, start_date=20221120T004045, end_date=20221120T004046
+[2022-11-20T00:40:46.487+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 124 for task load_data_to_staging_call_table ((3948, 'Loading local data is disabled; this must be enabled on both the client and server sides'); 3348)
+[2022-11-20T00:40:46.555+0000] {local_task_job.py:159} INFO - Task exited with return code 1
+[2022-11-20T00:40:46.651+0000] {taskinstance.py:2623} INFO - 0 downstream tasks scheduled from follow-on schedule check

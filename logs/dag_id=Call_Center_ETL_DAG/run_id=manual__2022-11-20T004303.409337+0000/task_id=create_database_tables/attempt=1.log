@@ -1,0 +1,80 @@
+[2022-11-20T00:43:26.160+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Call_Center_ETL_DAG.create_database_tables manual__2022-11-20T00:43:03.409337+00:00 [queued]>
+[2022-11-20T00:43:26.182+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Call_Center_ETL_DAG.create_database_tables manual__2022-11-20T00:43:03.409337+00:00 [queued]>
+[2022-11-20T00:43:26.190+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-20T00:43:26.193+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 1
+[2022-11-20T00:43:26.195+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-20T00:43:26.298+0000] {taskinstance.py:1383} INFO - Executing <Task(MySqlOperator): create_database_tables> on 2022-11-20 00:43:03.409337+00:00
+[2022-11-20T00:43:26.331+0000] {standard_task_runner.py:55} INFO - Started process 3471 to run task
+[2022-11-20T00:43:26.342+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Call_Center_ETL_DAG', 'create_database_tables', 'manual__2022-11-20T00:43:03.409337+00:00', '--job-id', '136', '--raw', '--subdir', 'DAGS_FOLDER/call_center_dag.py', '--cfg-path', '/tmp/tmpbtqunprl']
+[2022-11-20T00:43:26.345+0000] {standard_task_runner.py:83} INFO - Job 136: Subtask create_database_tables
+[2022-11-20T00:43:26.585+0000] {task_command.py:376} INFO - Running <TaskInstance: Call_Center_ETL_DAG.create_database_tables manual__2022-11-20T00:43:03.409337+00:00 [running]> on host 9eba6bc17a61
+[2022-11-20T00:43:26.791+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Abdelrhman Yassein
+AIRFLOW_CTX_DAG_ID=Call_Center_ETL_DAG
+AIRFLOW_CTX_TASK_ID=create_database_tables
+AIRFLOW_CTX_EXECUTION_DATE=2022-11-20T00:43:03.409337+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-11-20T00:43:03.409337+00:00
+[2022-11-20T00:43:26.792+0000] {mysql.py:84} INFO - Executing: 
+    #Create Customer Tabel 
+
+    CREATE TABLE IF NOT EXISTS customers (
+        customer_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+        customer_name VARCHAR(255) NOT NULL,
+        city VARCHAR(50),
+        state VARCHAR(50),
+        sentiment VARCHAR(50)
+    );
+
+    # Create call_fact Table 
+
+    CREATE TABLE IF NOT EXISTS call_fact (
+        call_id VARCHAR(255) NOT NULL PRIMARY KEY,
+        customer_id INT NOT NULL,
+        call_date DATE NOT NULL,
+        csat_score INT,
+        call_in_minutes INT,
+        constraint customer_fk foreign key (customer_id) references customers(customer_id) 
+    );
+
+    # Create call_time Table
+
+    CREATE TABLE IF NOT EXISTS call_time (
+            call_date   DATE NOT NULL primary key,
+            day         INT NOT NULL,
+            week        INT,
+            weekday     VARCHAR(255),
+            month       INT,
+            year        INT
+    );
+
+    
+    # Create call_info Table
+
+    CREATE TABLE IF NOT EXISTS call_info (
+        call_id VARCHAR(255) NOT NULL PRIMARY KEY,
+        reason VARCHAR(255),
+        channel VARCHAR(255),
+        call_center VARCHAR(255),
+        response_time VARCHAR(255)
+    )
+    
+[2022-11-20T00:43:26.855+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/mysql/operators/mysql.py", line 86, in execute
+    hook.run(self.sql, autocommit=self.autocommit, parameters=self.parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 288, in run
+    with closing(self.get_conn()) as conn:
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/mysql/hooks/mysql.py", line 165, in get_conn
+    conn = self.connection or self.get_connection(getattr(self, self.conn_name_attr))
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/hooks/base.py", line 70, in get_connection
+    conn = Connection.get_connection_from_secrets(conn_id)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/connection.py", line 432, in get_connection_from_secrets
+    raise AirflowNotFoundException(f"The conn_id `{conn_id}` isn't defined")
+airflow.exceptions.AirflowNotFoundException: The conn_id `mysql_default` isn't defined
+[2022-11-20T00:43:26.894+0000] {taskinstance.py:1406} INFO - Marking task as FAILED. dag_id=Call_Center_ETL_DAG, task_id=create_database_tables, execution_date=20221120T004303, start_date=20221120T004326, end_date=20221120T004326
+[2022-11-20T00:43:26.939+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 136 for task create_database_tables (The conn_id `mysql_default` isn't defined; 3471)
+[2022-11-20T00:43:27.000+0000] {local_task_job.py:159} INFO - Task exited with return code 1
+[2022-11-20T00:43:27.104+0000] {taskinstance.py:2623} INFO - 0 downstream tasks scheduled from follow-on schedule check
