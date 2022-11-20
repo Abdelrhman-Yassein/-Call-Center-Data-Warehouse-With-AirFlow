@@ -10,13 +10,13 @@ Call Center Data [this](https://data.world/markbradbourne/rwfd-real-world-fake-d
 
 
 ## Star-Schema Model
-![Star-Schema](images\call-center.png)
+![Star-Schema](https://raw.githubusercontent.com/Abdelrhman-Yassein/-Call-Center-Data-Warehouse-With-AirFlow/main/images/call-center.png)
 
 ## Project DAG
-![Star-Schema](images\dag.PNG)
+![Star-Schema](https://raw.githubusercontent.com/Abdelrhman-Yassein/-Call-Center-Data-Warehouse-With-AirFlow/main/images/dag.PNG)
 
 ## Data Check Result
-![Star-Schema](images\data_check.PNG)
+![Star-Schema](https://raw.githubusercontent.com/Abdelrhman-Yassein/-Call-Center-Data-Warehouse-With-AirFlow/main/images/data_check.PNG)
 
 ## What We Use In Project
 
